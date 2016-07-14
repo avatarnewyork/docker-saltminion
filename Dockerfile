@@ -21,6 +21,10 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 RUN curl -o install_salt.sh -L https://bootstrap.saltstack.com
 RUN sh install_salt.sh -X -p python-gnupg
 
+# 2016.3.1 
+RUN yum install https://repo.saltstack.com/yum/redhat/salt-repo-latest-1.el7.noarch.rpm
+RUN yum clean expire-cache
+RUN yum update salt-minion
 
 ADD run.sh /usr/local/bin/run.sh
 #RUN chmod +xw /usr/local/bin/run.sh
