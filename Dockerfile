@@ -30,6 +30,11 @@ ADD run.sh /usr/local/bin/run.sh
 #RUN chmod +xw /usr/local/bin/run.sh
 
 VOLUME ["/sys/fs/cgroup"]
+VOLUME /srv/pillar
+VOLUME /srv/salt
+VOLUME /srv/reactor
+VOLUME /var/log/salt
+VOLUME /var/cache/salt
 
 #CMD ["/usr/local/bin/run.sh; /usr/sbin/init"]
 CMD ["/usr/sbin/init"]
